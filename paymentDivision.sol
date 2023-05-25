@@ -1,4 +1,4 @@
-// SPDX-License-Identifier : MIT
+// SPDX-License-Identifier: MIT
 
 
 /*
@@ -25,31 +25,35 @@ Purpose of the contract
       uint amount;
       uint total;
 
-      // define rates
-
+      // Define rates
       uint ceo_rate = 60;
       uint cto_rate = 25;
       uint cmo_rate = 15;
 
       // start making transfer calls
+      uint amount;
 
-      ceo.transfer(points * ceo_rate);
+      amount = points * ceo_rate;
+      ceo.transfer(amount);
       total += amount;
 
 
-      cto.transfer(points * cto_rate);
+      amount = points * cto_rate;
+      cto.transfer(amount);
       total += amount;
 
-      cmo.transfer(points * cmo_rate);
+
+      amount = points * cmo_rate;
+      cmo.transfer(amount);
       total += amount;
   }
 
-// add a receive fallback function so it can receive Ether. do you get?
+// Add a receive fallback function so it can receive Ether.
   receive () external payable {}
 
 // call this function to know the balance
 
    function knowRemainingMoney () public view returns (uint) {
-       return address(this).balance;
+      return address(this).balance;
    }
   }
